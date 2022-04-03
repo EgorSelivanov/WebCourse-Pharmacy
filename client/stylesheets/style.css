@@ -1,0 +1,117 @@
+body {
+	background: #f9e933;
+	font-family: 'Inter', sans-serif;
+	font-size: 100%;
+}
+h1, h2, h3, h4 {
+	font-family: 'Ubuntu', sans-serif;
+}
+header, main, footer {
+	min-width: 855px;
+}
+header .container, main .container, footer .container {
+	max-width: 1300px;
+	margin: auto;
+}
+header {
+	padding-top: 30px;
+	background: white;
+	overflow: auto;
+}
+header h1 {
+	float: left;
+	width: 400px;
+	font-size: 300%;
+	font-style: italic;
+}
+header nav {
+	float: right;
+	width: 280px;
+}
+
+main {
+	background: white;
+	overflow: auto;
+}
+main .container h2 {
+	font-size: 150%;
+}
+main .container h3 {
+	font-size: 130%;
+}
+main .container .main-image {
+	float: right;
+	width: 285px;
+}
+main .container .tabs a span {
+	display: inline-block;
+	border-radius: 5px 5px 0 0;
+	width: 100px;
+	margin-right: 10px;
+	text-align: center;
+	background: #ddd;
+	padding: 5px;
+}
+main .container .tabs a span .active {
+	background: #eee;
+}
+main .container .header-nav{
+	float: left;
+	width: 300px;
+	margin-left: 10px;
+}
+
+footer .container h5 {
+	font-size: 120%;
+}
+footer .container .contact {
+	float: left;
+	width: 570px;
+}
+footer .container .sitemap {
+	float: right;
+	width: 285px;
+}
+footer .container .sitemap ul {
+	columns: 2;
+	list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+	color: red;
+	text-decoration: underline;
+}
+
+.input-task {
+	border-radius: 15px;
+	height: 5%;
+	width: 25%;
+	padding-left: 5px;
+	margin: 1%;
+}
+
+.input-med {
+	border-radius: 15px;
+	vertical-align: middle;
+	height: 6%;
+	width: 40%;
+	margin: 1%;
+	margin-left: 5px;
+	margin-top: 10px;
+}
+
+.search-med-btn {
+	background-color: orangered;
+	color: black;
+	padding: 10px 20px;
+	border-radius: 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin-left: 0%;
+}
+
