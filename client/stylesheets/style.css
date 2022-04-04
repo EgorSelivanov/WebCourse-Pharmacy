@@ -1,13 +1,16 @@
-body {
-	background: #f9e933;
+html, body {
+	background: white;
 	font-family: 'Inter', sans-serif;
 	font-size: 100%;
+	height: 100%;
+}
+.wrapp {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 h1, h2, h3, h4 {
 	font-family: 'Ubuntu', sans-serif;
-}
-header, main, footer {
-	min-width: 855px;
 }
 header .container, main .container, footer .container {
 	max-width: 1300px;
@@ -15,8 +18,8 @@ header .container, main .container, footer .container {
 }
 header {
 	padding-top: 30px;
-	background: white;
-	overflow: auto;
+	background: #E6EFF8;
+	overflow: none;
 }
 header h1 {
 	float: left;
@@ -24,14 +27,15 @@ header h1 {
 	font-size: 300%;
 	font-style: italic;
 }
-header nav {
+header .container .header-image {
 	float: right;
-	width: 280px;
+	margin-top: -5%;
 }
 
 main {
-	background: white;
-	overflow: auto;
+	background-color: white;
+	overflow: visible;
+	flex: 1 1 auto;
 }
 main .container h2 {
 	font-size: 150%;
@@ -61,20 +65,28 @@ main .container .header-nav{
 	margin-left: 10px;
 }
 
+footer {
+	background: #E6EFF8;
+	overflow: auto;
+}
+footer .container {
+	display: flex;
+	margin-top: 10px;
+}
 footer .container h5 {
 	font-size: 120%;
 }
-footer .container .contact {
-	float: left;
-	width: 570px;
+footer .container .about-pharmacy {
+	flex-basis: 30%;
+
 }
-footer .container .sitemap {
-	float: right;
-	width: 285px;
+footer .container .pharmacy-icon {
+	flex-basis: 40%;
 }
-footer .container .sitemap ul {
-	columns: 2;
-	list-style: none;
+footer .container .footer-social-networks {
+	flex-basis: 30%;
+	text-align: center;
+
 }
 
 a {
@@ -85,18 +97,10 @@ a:hover {
 	text-decoration: underline;
 }
 
-.input-task {
-	border-radius: 15px;
-	height: 5%;
-	width: 25%;
-	padding-left: 5px;
-	margin: 1%;
-}
-
 .input-med {
 	border-radius: 15px;
 	vertical-align: middle;
-	height: 6%;
+	height: 35%;
 	width: 40%;
 	margin: 1%;
 	margin-left: 5px;
@@ -115,3 +119,91 @@ a:hover {
 	margin-left: 0%;
 }
 
+.wrapper {
+	position: relative;
+	overflow-x: hidden;
+}
+.wrapper .menu {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 20%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #E6EFF8;
+	transition: 0.5s;
+	transform: translateX(-100%);
+}
+.wrapper .menu_active {
+	transform: translateX(0%);
+}
+.wrapper .menu-list {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 50%;
+	flex-direction: column;
+}
+.wrapper .menu-list a{
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 900;
+}
+.wrapper .menu-btn {
+	width: 30px;
+	height: 30px;
+	
+	position: absolute;
+	right: -35px;
+	top: 10px;
+}
+
+section {
+	padding: -5px 0;
+	background-color: white;
+}
+.section__title {
+	font-size: 48px;
+	text-align: center;
+	margin: 0 auto 40px;
+	font-weight: 900;
+	color: orange;
+}
+.catalog-nav {
+	display: flex;
+	justify-content: center;
+}
+.catalog-nav__wrapper {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1);
+	border-radius: 23px;
+	overflow: hidden;
+}
+.catalog-nav__btn {
+	padding: 0;
+	border: 0;
+	background-color: skyblue;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	padding: 13px;
+	min-width: 150px;
+	font-size: 18px;
+	font-weight: 900;
+	color: #e6e6e6;
+	border-right: 1px solid #e5e5e5;
+	transition: border .2s, background .2s, color .2s;
+}
+.catalog-nav__btn.is-active {
+	background: #1f1f1f;
+	color: white;
+}
+.catalog-nav__btn:not(.is-active):hover {
+	background: #ffa650;
+	color: white;	
+}

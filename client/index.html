@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 <body>
+	<div class="wrapp">
 <header>
 	<div class="container">
 		<h1>Интернет-аптека</h1>
@@ -20,6 +21,10 @@
 			</form>
 		</div>
 
+		<div class="header-image">
+			<img src="images/apteka.png" alt="Аптека" style="width: 200px;">
+		</div>
+
 		<!--nav>
 			<a href="#">Регистрация</a>
 			<a href="faq.html">ВиО</a>
@@ -27,8 +32,23 @@
 		</nav-->
 	</div>
 </header>
+
 <main>
 	<div class="container">
+
+		<div class="wrapper">
+			<div class="menu">
+				<a href="#" class="menu-btn"><img src="images/list.png" width="100%"></a>
+				<nav class="menu-list">
+					<a href="">Вход</a>
+					<a href="index.html">Главная</a>
+					<a href="">Пункты выдачи</a>
+					<a href="">Помощь</a>
+					<a href=""></a>
+				</nav>
+			</div>
+		</div>
+
 		<div class="header-nav">
 			<div class="categories">
 				<li>
@@ -127,32 +147,63 @@
 			</div>
 
 		</div>
+
+		<section class="section-catalog">
+			<div class="section-container">
+				<header class="section__header">
+					<h2 class="section__title">Лекарства</h2>
+					<nav class="catalog-nav">
+						<ul class="catalog-nav__wrapper">
+							<li class="catalog-nav__item">
+								<button class="catalog-nav__btn is-active" type="button">Товары дня</button>
+							</li>
+							<li class="catalog-nav__item">
+								<button class="catalog-nav__btn" type="button">Здоровье</button>
+							</li>
+							<li class="catalog-nav__item">
+								<button class="catalog-nav__btn" type="button">Красота</button>
+							</li>
+							<li class="catalog-nav__item">
+								<button class="catalog-nav__btn" type="button">Для детей</button>
+							</li>
+						</ul>
+					</nav>
+				</header>
+			</div>
+		</section>
 		
 	</div>
 </main>
 <footer>
 	<div class="container">
-		<div class="contact">
-		<h5>Свяжитесь с нами</h5>
-		<p><br></p>
-		<p>Amazeriffic!</p>
-		<p>555 50-я улица</p>
-		<p>Татарстан, Казань 28801</p>
-		</div>
-		<div class="sitemap">
-			<h5>Карта сайта</h5>
+		<div class="about-pharmacy">
+			<h5>Информация об аптеке</h5>
 			<ul>
-				<li><a href="index.html">Домой</a></li>
-				<li><a href="#">О нас</a></li>
-				<li><a href="#">Право</a></li>
-				<li><a href="#">Техподдержка</a></li>
-				<li><a href="#">ВиО</a></li>
-				<li><a href="#">Вакансии</a></li>
+				<li><a href="#">О сервисе</a></li>
+				<li><a href="#">Лицензия и реквизиты</a></li>
+				<li><a href="#">Часто задаваемые вопросы</a></li>
+				<li><a href="#">Акции</a></li>
+				<li><a href="#">Пользовательское соглашение</a></li>
 			</ul>
 		</div>
-	</div>
+
+		<div class="pharmacy-icon">
+			<img src="images/icon.jpg" width="100%">
+		</div>
+
+		<div class="footer-social-networks">
+                    <h3>Свяжитесь со мной:</h3> 
+                    <div class="social-links">
+                        <a href="https://vk.com/id162848756"><img src="images/vk.png" width="10%"></a>
+                        <a href="https://t.me/Beetle43"><img src="images/telegram.png" width="10%"></a>
+                        <a href="https://discordapp.com/users/322318543305572354"><img src="images/discord.png" width="10%"></a>
+                        <a href="https://github.com/EgorSelivanov"><img src="images/github.png" width="10%"></i></a>
+                    </div>
+  		</div>
+	</div>	
 </footer>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="javascripts/app.js"></script>
+</div>
 </body>
 </html>
