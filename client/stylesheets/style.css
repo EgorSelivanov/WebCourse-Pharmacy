@@ -8,6 +8,7 @@ html, body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+	background: white;
 }
 h1, h2, h3, h4 {
 	font-family: 'Ubuntu', sans-serif;
@@ -16,7 +17,7 @@ header .container, main .container, footer .container {
 	max-width: 1300px;
 	margin: auto;
 }
-header {
+.main__header {
 	padding-top: 30px;
 	background: #E6EFF8;
 	overflow: none;
@@ -62,10 +63,10 @@ main .container .tabs a span .active {
 main .container .header-nav{
 	float: left;
 	width: 300px;
-	margin-left: 10px;
+	margin-left: 0px;
 }
 
-footer {
+.main__footer{
 	background: #E6EFF8;
 	overflow: auto;
 }
@@ -171,6 +172,9 @@ section {
 	font-weight: 900;
 	color: orange;
 }
+.section__header {
+	margin-bottom: 30px;
+}
 .catalog-nav {
 	display: flex;
 	justify-content: center;
@@ -207,3 +211,86 @@ section {
 	background: #ffa650;
 	color: white;	
 }
+
+/* catalog start*/
+.catalog {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -35px;
+}
+
+.catalog-item {
+	width: calc(100% / 4);
+	margin-bottom: 90px;
+	padding: 0 35px;
+	position: relative;
+}
+.catalog-item:before {
+	content: '';
+	background: #f7f7f7;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 3px;
+	height: 100%;
+	transform: translateX(-50%);
+}
+.catalog-item:nth-of-type(3n + 1)::before {
+	content: none;
+}
+/* catalog end */
+
+/* product start */
+.product {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.product__img {
+	display: block;
+	margin: 0 auto 15 px;
+	max-width: 100%;
+	height: auto;
+}
+.product__title {
+	margin: 0 0 10px;
+	font-weight: 900;
+	font-size: 22px;
+}
+.product__description {
+	margin: 0;
+	color: #9f9f9f;
+}
+.product__content {
+	margin-bottom: 25px;
+	flex-grow: 1;
+}
+.product__price {
+	font-size: 22px;
+	font-weight: 900;
+	text-align: right;
+}
+.product__bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.product__btn {
+	box-shadow: none;
+	background: #ffa650;
+	border-radius: 25px;
+	width: 200px;
+	padding: 14px 20px;
+}
+.product__btn:hover {
+	background: #ff7c21;
+}
+/* product end */
+
+.header-nav {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	background: #E6EFF8;
+}
+.
