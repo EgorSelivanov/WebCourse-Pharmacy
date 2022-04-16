@@ -1,0 +1,45 @@
+.section-contacts {
+	overflow: hidden;
+}
+
+.section-contacts__container {
+	position: relative;
+}
+.contacts {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.contacts__start {
+	width: 50%;
+}
+.contacts__end {
+	padding-left: 30px;
+	width: 50%;
+}
+.contacts__map {
+	height: 450px;
+	background: #fef0b4;
+}
+.contacts__item {
+	margin-bottom: 40px;
+}
+.contacts__title {
+	margin: 0 0 5px;
+	font-size: 20px;
+	font-weight: 900;
+}
+.contacts__text {
+	margin: 0;
+	font-size: 18px;
+}
+.contacts__phone {
+	color: inherit;
+	text-decoration: none;
+}
+
+.contacts__phone:hover {
+	color: #ffa650;
+}
+

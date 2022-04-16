@@ -32,6 +32,11 @@ header .container .header-image {
 	float: right;
 	margin-top: -5%;
 }
+header .container .header-counter {
+	float: right;
+	margin-top: -5%;
+	margin-left: 50%;
+}
 
 main {
 	background-color: white;
@@ -51,8 +56,11 @@ main .container h3 {
 }
 main .container .header-nav{
 	float: left;
-	flex-basis: 35%;
+	
 	margin-left: -110px;
+	width: 23%;
+	max-width: 23%;
+	min-width: 23%;
 	display: flex;
 	justify-content: center;
 	list-style: none;
@@ -155,7 +163,11 @@ a:hover {
 
 section {
 	padding: 0 0;
+	margin-top: 20px;
 	background-color: white;
+	justify-content: center;
+	width: 85%;
+	min-width: 85%;
 }
 .section-container {
 	margin-left: 50px;
@@ -281,5 +293,45 @@ section {
 .product__btn:hover {
 	background: #ff7c21;
 }
+.product__btn__active {
+	box-shadow: none;
+	background: indianred;
+	border-radius: 25px;
+	width: 200px;
+	padding: 14px 20px;
+}
 /* product end */
+
+.shopping-container {
+	width: 97%;
+	height: 97vh;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: auto;
+	padding: 30px;
+	background-color: white;
+}
+.shopping-element__name {
+	padding: 15px;
+	font-weight: bond;
+}
+.shopping-element__price {
+	padding: 15px;
+	color: skyblue;
+}
+.shopping__close {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 20px;
+	right: 20px;
+	background-image: url(../images/close.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	cursor: pointer;
+}
+
 
