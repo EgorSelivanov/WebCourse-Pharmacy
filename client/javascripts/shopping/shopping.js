@@ -14,12 +14,9 @@ class Shopping {
 		let htmlCatalog = '';
 		let sumCatalog = 0;
 
-		var flag = false;
 
 		CATALOG.forEach(({ id, title, description, price, data_category, img }) => {
 			if (productsStore.indexOf(id) !== -1) {
-
-				flag = true;
 				let activeClass = '';
 				let activeText = '';
 
@@ -31,10 +28,10 @@ class Shopping {
 				}
 
 				htmlCatalog += 
-					`<div class="catalog-item" data-category="${data_category}"> 
+					`<div class="bucket-item" data-category="${data_category}"> 
 						<div class="product">
 							<img src=${img} alt="" class="product__img">
-							<div class="product__content">
+							<div class="bucket__content">
 								<h3 class="product__title">${title}</h3>
 								<p class="product__description">${description}</p>
 							</div>
@@ -43,7 +40,8 @@ class Shopping {
 									<div class="product__price">
 										<span class="product__price-value">${price}</span>
 										<span class="product__currency">&#8381;</span>
-										<button class="btn product__btn${activeClass}" type="button" onclick="productsPage.handleSetLocationStorage(this, '${id}')">
+										<button class="btn product__btn${activeClass}" type="button" onclick="productsPage.handleSetLocationStorage(this, '${id}');
+										shoppingPage.render();">
 										${activeText}</button>
 									</div>
 								</div>
@@ -54,15 +52,15 @@ class Shopping {
 			}
 		});
 
-		if (!flag){
-			return;
-		}
-
 		const html = `
 			<div class="shopping-container">
-				<div class="shopping__close" onclick="shoppingPage.handleClear();">
+				<div class="shopping__close" onclick="shoppingPage.handleClear();productsPage.render();">
 				</div>
 				${htmlCatalog}
+				<div class="sum-price">
+					<h3 class="shopping-element__name">Сумма: </h3>
+					<h4 class="shopping-element__price">${sumCatalog.toLocaleString()} &#8381</h4>
+				</div>
 			</div>
 		`;
 
@@ -72,7 +70,3 @@ class Shopping {
 
 const shoppingPage = new Shopping();
 
-/*<tr>
-					<td class="shopping-element__name">Сумма: </td>
-					<td class="shopping-element__price">${sumCatalog.toLocaleString()}</td>
-				</tr>*/

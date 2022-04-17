@@ -3,6 +3,25 @@ class Products {
 		this.classNameActive = ' product__btn__active';
 		this.labelAdd = 'Добавить в корзину';
 		this.labelRemove = 'Удалить из корзины';
+
+		var catalogNav = document.querySelector('.catalog-nav');
+		catalogNav.addEventListener('click', function(e) {
+			var target = e.target;
+			var item = myLib.closestItemByClass(target, 'catalog-nav__btn');
+
+			if (item === null || item.classList.contains('is-active')) {
+				return;
+			}
+
+			e.preventDefault();
+
+			var previousBtnActive = catalogNav.querySelector('.catalog-nav__btn.is-active');
+
+			previousBtnActive.classList.remove('is-active');
+			item.classList.add('is-active');
+
+			productsPage.render();
+		});
 	}
 
 	handleSetLocationStorage(element, id) {
@@ -21,9 +40,12 @@ class Products {
 	}
 	
 	render() {
+		$('.catalog').empty();
 		const productsStore = localStorageUtil.getProducts();
 		let htmlCatalog = '';
 
+		var filterValue = $('.catalog-nav__btn.is-active').attr('data-filter');
+	
 		CATALOG.forEach(({ id, title, description, price, data_category, img }) => {
 			let activeClass = '';
 			let activeText = '';
@@ -33,6 +55,10 @@ class Products {
 			} else {
 				activeClass = this.classNameActive;
 				activeText = this.labelRemove;
+			}
+
+			if (data_category !== filterValue) {
+				return;
 			}
 
 			htmlCatalog += `<div class="catalog-item" data-category="${data_category}"> 

@@ -1,0 +1,52 @@
+.shopping-container {
+	width: 93%;
+	height: 95vh;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: auto;
+	padding: 30px;
+	background-color: white;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: scroll;
+}
+.sum-price {
+	padding: 0 35px;
+	
+}
+.shopping-element__name {
+	margin: 0 0 10px;
+	font-weight: 900;
+	font-size: 22px;
+}
+.shopping-element__price {
+	margin: 0 0 10px;
+	font-weight: 900;
+	font-size: 20px;
+	color: skyblue;
+}
+.shopping__close {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 20px;
+	right: 20px;
+	background-image: url(../images/close.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	cursor: pointer;
+	z-index: 99999999;
+}
+.bucket__content {
+	margin-bottom: 25px;
+	flex-grow: 0;
+}
+.bucket-item {
+	width: calc(100% / 7);
+	margin-bottom: 90px;
+	padding: 0 35px;
+	position: relative;
+}

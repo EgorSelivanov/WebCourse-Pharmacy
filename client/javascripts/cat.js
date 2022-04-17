@@ -30,5 +30,13 @@ const CATALOG = [
 		price: 400,
 		data_category: 'for_children',
 		img: 'images/catalog/paracetamol.png',
+	},
+	{
+		id: 'el5',
+		title: 'Laaalaa',
+		description: 'Парацетамол, таблетки 20 шт 500 мг',
+		price: 400,
+		data_category: 'for_children',
+		img: 'images/catalog/paracetamol.png',
 	}
 ];

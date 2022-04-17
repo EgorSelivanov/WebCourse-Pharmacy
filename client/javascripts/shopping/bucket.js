@@ -1,7 +1,6 @@
 class Bucket {
 
 	handleOpenShoppingPage() {
-		console.log("yey");
 		shoppingPage.render();
 	}
 
