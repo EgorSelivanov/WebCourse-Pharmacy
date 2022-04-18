@@ -1,6 +1,6 @@
 .shopping-container {
 	width: 93%;
-	height: 95vh;
+	height: 93vh;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -33,7 +33,7 @@
 	height: 35px;
 	top: 20px;
 	right: 20px;
-	background-image: url(../images/close.png);
+	background-image: url(https://i.ibb.co/tLtWWX2/close.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;

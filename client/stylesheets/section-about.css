@@ -14,7 +14,6 @@ h1, h2, h3, h4 {
 	font-family: 'Ubuntu', sans-serif;
 }
 header .container, main .container, footer .container {
-	display: flex;
 	max-width: 1300px;
 	margin: auto;
 }
@@ -24,20 +23,14 @@ header .container, main .container, footer .container {
 	overflow: none;
 }
 header h1 {
-	flex-basis: 30%;
-	/*float: left;
-	width: 400px;*/
+	float: left;
+	width: 400px;
 	font-size: 300%;
 	font-style: italic;
 }
 header .container .header-image {
-	margin-top: -2%;
-	flex-basis: 20%;
-	margin-left: 17px;
-}
-.header-counter {
-	margin-top: -20%;
-	margin-left: -15%;
+	float: right;
+	margin-top: -5%;
 }
 
 main {
@@ -58,7 +51,6 @@ main .container h3 {
 }
 main .container .header-nav{
 	float: left;
-	min-height: 500px;
 	margin-left: -110px;
 	width: 23%;
 	max-width: 23%;
@@ -104,16 +96,13 @@ a:hover {
 .input-med {
 	border-radius: 15px;
 	vertical-align: middle;
-	height: 45%;
-	width: 80%;
+	height: 35%;
+	width: 40%;
 	margin: 1%;
 	margin-left: 5px;
 	margin-top: 10px;
 }
-.searching {
-	flex-basis: 40%;
-	margin-left: 5%;
-}
+
 .search-med-btn {
 	background-color: orangered;
 	color: black;
@@ -127,7 +116,7 @@ a:hover {
 }
 
 .wrapper {
-	display: flex;
+	position: relative;
 	overflow-x: hidden;
 }
 .wrapper .menu {
@@ -167,4 +156,33 @@ a:hover {
 }
 
 
+/* section-about start */
+section {
+	padding: 0 0;
+	background-color: white;
+}
+.section-about {
+	background: linear-gradient(to top, #2d2c2c, #1f1f1f);
+	color: white;
+	position: relative;
+}
+.section-about__container {
+	flex-basis: 70%;
+	margin-left: 50px;
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+}
+.section-about__img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	object-fit: cover;
+}
+.section-about__content {
+	width: 50%;
+	padding-left: 51%;
 
+}

@@ -9,7 +9,7 @@ class Bucket {
 			<div class="header-bucket">
 				<div class="header-counter">
 					Корзина<br>
-					<img src="images/bucket.png" onclick="bucketPage.handleOpenShoppingPage();" style="width: 50px;cursor: pointer;">
+					<img src="https://i.ibb.co/BZq7HTZ/bucket.png" onclick="bucketPage.handleOpenShoppingPage();" style="width: 50px;cursor: pointer;">
 					${count}
 				</div>
 			</div>

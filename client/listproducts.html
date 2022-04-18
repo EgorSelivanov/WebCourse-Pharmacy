@@ -3,14 +3,15 @@
 <head>
 <title>Интернет-аптека города Казани, поиск препаратов, наличие в аптеках</title>
 <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/section-about.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/section-contacts.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/shopping.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/catalog.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="wrapp">
+<div class="wrapp">
 <header class="main__header">
 	<div class="container">
 		<h1>Интернет-аптека</h1>
@@ -26,11 +27,8 @@
 			<img src="https://i.ibb.co/zSm08SY/apteka.png" alt="Аптека" style="width: 200px;">
 		</div>
 
-		<!--nav>
-			<a href="#">Регистрация</a>
-			<a href="faq.html">ВиО</a>
-			<a href="#">Техподдержка</a>
-		</nav-->
+		<div class="bucket">
+		</div>
 	</div>
 </header>
 
@@ -42,7 +40,7 @@
 				<a href="#" class="menu-btn"><img src="https://i.ibb.co/YpgYTLJ/list.png" width="100%"></a>
 				<nav class="menu-list">
 					<a href="">Вход</a>
-					<a href="index.html">Главная</a>
+					<a href="/index.html">Главная</a>
 					<a href="">Пункты выдачи</a>
 					<a href="">Помощь</a>
 					<a href=""></a>
@@ -52,20 +50,27 @@
 
 		<div class="header-nav">
 			<div class="categories">
-				
+
 			</div>
 
 		</div>
 
-		<section class="section section-about">
-			<img src="https://i.ibb.co/mzsCSKN/bg.jpg" alt="" class="section-about__img">
-			<div class="container section-about__container">
-				<div class="section-about__content">
-					<h2 class="section__title section-about__title">О сервисе</h2>
-					<p class="section-about__text">Мы упрощаем покупку товаров для здоровья тем, кому это важно. Оформление заказа и чат с фармацевтом работают круглосуточно – консультацию по заказу или вопросам дозировки и приема препаратов можно получить в любой момент. При самовывозе из СБЕР ЕАПТЕКИ заказ будет готов в течение часа.</p>
+		<section class="section-catalog">
+			<div class="section-container">
+				<header class="section__header">
+					<h2 class="section__title">Лекарства</h2>
+				</header>
+
+				<div class="catalog">
+					
 				</div>
 			</div>
-		</section>		
+		</section>
+		
+	</div>
+
+	<div class="store">
+
 	</div>
 </main>
 <footer class="main__footer">
@@ -73,7 +78,7 @@
 		<div class="about-pharmacy">
 			<h5>Информация об аптеке</h5>
 			<ul>
-				<li><a href="#">О сервисе</a></li>
+				<li><a href="/about.html">О сервисе</a></li>
 				<li><a href="#">Лицензия и реквизиты</a></li>
 				<li><a href="#">Часто задаваемые вопросы</a></li>
 				<li><a href="#">Акции</a></li>
@@ -98,6 +103,11 @@
 </footer>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="/javascripts/app.js"></script>
+<script src="/javascripts/shopping/localStorageUtil.js"></script>
+<script src="/javascripts/productsByLinks.js"></script>
+<script src="/javascripts/shopping/shopping.js"></script>
+<script src="/javascripts/shopping/bucket.js"></script>
+<script src="/javascripts/myLib.js"></script>
 </div>
 </body>
 </html>
