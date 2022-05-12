@@ -10,7 +10,11 @@ CategoryController.index = function(req, res) {
 		if (err !== null) {
 		  res.json(500, err);
 		} else {
-			res.status(200).json(categories);
+			function SortArray(x, y){
+			    return x.category_name.localeCompare(y.category_name);
+			}
+			var categoriesSort = categories.sort(SortArray);
+			res.status(200).json(categoriesSort);
 		}
 	});
 };
@@ -25,7 +29,7 @@ CategoryController.show = function(req, res) {
 			console.log(result);
 			res.sendfile('./client/listproducts.html');
 		} else {
-		  res.send(404);
+		  	res.send(404);
 		}
 	});
 };
