@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/shopping.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/catalog.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Ubuntu&display=swap" rel="stylesheet">
@@ -25,7 +26,6 @@
 
 		<div class="bucket">
 		</div>
-
 	</div>
 </header>
 
@@ -36,7 +36,7 @@
 			<div class="menu">
 				<a href="#" class="menu-btn"><img src="https://i.ibb.co/YpgYTLJ/list.png" width="100%"></a>
 				<nav class="menu-list">
-					<a href="">Вход</a>
+					<a href="/authorization.html">Вход</a>
 					<a href="/index.html">Главная</a>
 					<a href="">Пункты выдачи</a>
 					<a href="/admin.html">Администратор</a>
@@ -44,46 +44,13 @@
 			</div>
 		</div>
 
-		<div class="header-nav">
-			<div class="categories">
-
-			</div>
-
+		<div class="authorization">
+			<p>Введите имя пользователя:</p>
 		</div>
 
-		<section class="section-catalog">
-			<div class="section-container">
-				<header class="section__header">
-					<h2 class="section__title">Лекарства</h2>
-					<nav class="catalog-nav">
-						<ul class="catalog-nav__wrapper">
-							<li class="catalog-nav__item">
-								<button class="catalog-nav__btn is-active" type="button" data-filter="goods_of_day">Товары дня</button>
-							</li>
-							<li class="catalog-nav__item">
-								<button class="catalog-nav__btn" type="button" data-filter="health">Здоровье</button>
-							</li>
-							<li class="catalog-nav__item">
-								<button class="catalog-nav__btn" type="button" data-filter="beauty">Красота</button>
-							</li>
-							<li class="catalog-nav__item">
-								<button class="catalog-nav__btn" type="button" data-filter="for_children">Для детей</button>
-							</li>
-						</ul>
-					</nav>
-				</header>
+		<div class="list_of_users">
+		</div>
 
-				<div class="catalog">
-					
-				</div>
-			</div>
-		</section>
-		
-	</div>
-
-	<div class="store">
-
-	</div>
 </main>
 <footer class="main__footer">
 	<div class="container">
@@ -114,12 +81,7 @@
 	</div>	
 </footer>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="/javascripts/app.js"></script>
-<script src="/javascripts/shopping/localStorageUtil.js"></script>
-<script src="/javascripts/productsByCategory.js"></script>
-<script src="/javascripts/shopping/shopping.js"></script>
-<script src="/javascripts/shopping/bucket.js"></script>
-<script src="/javascripts/myLib.js"></script>
+<script src="/javascripts/apothecary.js"></script>
 </div>
 </body>
 </html>

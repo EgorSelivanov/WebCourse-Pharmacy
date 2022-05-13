@@ -36,7 +36,7 @@ class Shopping {
 
 		const html = `
 			<div class="shopping-container">
-				<div class="shopping__close" onclick="shoppingPage.handleClear();productsPage.render();">
+				<div class="shopping__close" onclick="shoppingPage.handleClear();productsPage.render();$('.search-med-btn').click();">
 				</div>
 				<div class="sum-price">
 					<h3 class="shopping-element__name">Сумма: </h3>

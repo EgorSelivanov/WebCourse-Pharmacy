@@ -4,7 +4,8 @@ var express = require("express"),
 	mongoose = require("mongoose"),
 	app = express(),
 	productController = require("./controllers/product_controller.js"),
-	categoryController = require("./controllers/category_controller.js");
+	categoryController = require("./controllers/category_controller.js"),
+	usersController = require("./controllers/users_controller.js");
 
 app.use('/', express.static(__dirname + "/client"));
 
@@ -44,3 +45,9 @@ app.get("/category/:category_link/product.json", productController.index);
 app.post("/category/:category_link/product", productController.create);
 app.put("/category/:category_link/product/:id", productController.update);
 app.delete("/category/:category_link/product/:id", productController.destroy);
+
+app.get("/apothecary.json", usersController.index);
+app.post("/apothecary", usersController.create);
+app.get("/apothecary/:username", usersController.show);
+app.put("/apothecary/:username", usersController.update);
+app.delete("/apothecary/:username", usersController.destroy);

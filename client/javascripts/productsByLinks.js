@@ -18,8 +18,6 @@ class ProductsByLinks {
 		$('.catalog').empty();
 		const productsStore = localStorageUtil.getProducts();
 		let htmlCatalog = '';
-
-		var filterValue = $('.catalog-nav__btn.is-active').attr('data-filter');
 	
 		$.getJSON("product.json/", function(productObjects){
 			productObjects.forEach(({ _id, title, description, price, img }) => {

@@ -1,0 +1,42 @@
+.authorization {
+	text-align: center;
+	border: double;
+	padding: 10px;
+	padding-inline: 20px;
+	margin-top: 70px;
+	border-radius: 30px;
+	background-color: lemonchiffon;
+}
+
+.input-name {
+	margin: 15 15;
+	border-radius: inherit;
+	width: 160px;
+	height: 27px;
+}
+
+.authorization-btn {
+	margin: 10px;
+	background-color: aquamarine;
+	border: ridge;
+	border-radius: 10px;
+	height: 30px;
+	width: 195px;
+}
+
+.list_of_users {
+	text-align: center;
+	border: double;
+	padding: 10px;
+	padding-inline: 20px;
+	margin-top: 70px;
+	border-radius: 30px;
+	background-color: lemonchiffon;
+	position: absolute;
+	right: 115px;
+	width: 250px;
+}
+
+p {
+	font-size: 18px;
+}

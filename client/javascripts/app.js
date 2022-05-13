@@ -44,13 +44,19 @@ var liaWithOpenOnClick = function(category) {
 
 var searchProduct = function() {
 	$('.catalog').empty();
+	$('.catalog-nav').empty();
+	
 	const productsStore = localStorageUtil.getProducts();
 	let htmlCatalog = '';
 
 	var title = document.getElementById("input-product").value;
-	document.getElementById("input-product").value = "";
 
-	$.get("/search/" + title, function(productObjects){
+	if (title.trim() === "") {
+		window.location.replace('/');
+		return;
+	}
+
+	$.get('/search/' + title, function(productObjects){
 		productObjects.forEach(({ _id, title, description, price, img }) => {
 			let activeClass = '';
 			let activeText = '';
