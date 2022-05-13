@@ -106,6 +106,27 @@ ProductsController.showByCategory = function (req, res) {
 	});
 };
 
+ProductsController.showByName = function (req, res) {
+	// это data_category, который мы отправляем через URL
+	var title = req.params.title;
+	// находим элемент списка задач с соответствующим ID 
+	Product.find({"title": new RegExp(title, 'i')}, function (err, product) {
+		if (err !== null) {
+			// возвращаем внутреннюю серверную ошибку 
+			console.log("ERROR" + err);
+			res.status(500).json(err);
+		} else {
+			if (Product.length > 0) {
+				// возвращаем успех!
+				res.status(200).json(product);
+			} else {
+				// мы не нашли элемент списка задач с этим ID! 
+				res.send(404);
+			}
+		}
+	});
+};
+
 ProductsController.destroy = function (req, res) {
 	var id = req.params.id;
 	Product.deleteOne({"_id": id}, function (err, Product) {
