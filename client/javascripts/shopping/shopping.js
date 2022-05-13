@@ -3,6 +3,27 @@ class Shopping {
 		$('.store').empty();
 	}
 
+	handleBuyProducts() {
+		const productsStore = localStorageUtil.getProducts();
+		productsStore.forEach((id) => {
+			$.get("/product/" + id, function({ _id, title, description, price, prescription, availability, release_form, 
+				amount, data_category, img }){
+				$.ajax({
+				    type: 'PUT',
+				    url: `/product/${_id}`, // адрес запроса
+				    data: { _id, title, description, price, prescription, availability, release_form, 
+				'amount': amount - 1, data_category, img }, // данные запроса
+				    dataType: 'json', // тип ожидаемых данных,
+				    success: function(data) { console.log(data); }, // обработка ответа от сервера
+				    error: function(jqXHR) { console.log('Ошибка выполнения'); },
+				    complete: function() { console.log('Завершение выполнения'); }
+				});
+				productsPage.handleSetLocationStorage(this, _id, price);
+			});
+		});
+		$('.store').empty();
+	}
+
 	render() {
 		const productsStore = localStorageUtil.getProducts();
 		let htmlCatalog = '';
@@ -56,6 +77,10 @@ class Shopping {
 					$('.shopping-container').append(htmlCatalogItem);
 				})
 		});
+
+		var htmlBuyButton = 
+		`<button class="btn buy__btn" type="button" onclick="shoppingPage.handleBuyProducts()">Купить</button>`
+		$('.shopping-container').append(htmlBuyButton);
 	}
 }
 

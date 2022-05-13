@@ -133,6 +133,7 @@ ProductsController.update = function (req, res) {
 		    amount: req.body.amount,
 		    data_category: req.body.data_category,
 		    img: req.body.img }};
+
 	Product.updateOne({"_id": id}, newDescription, function (err, Product) {
 		if (err !== null) {
 			res.status(500).json(err);
