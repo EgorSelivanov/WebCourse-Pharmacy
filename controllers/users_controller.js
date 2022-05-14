@@ -23,9 +23,9 @@ User.find({},function (err, result) {
 
 UsersController.index = function(req, res) {
 	console.log('Вызвано действие: UsersController.index');
-	User.find(function (err, users) {
+	User.find({"role": "apothecary"}, function (err, users) {
 		if (err !== null) {
-		  res.json(500, err);
+		  	res.json(500, err);
 		} else {
 			res.status(200).json(users);
 		}
@@ -39,7 +39,13 @@ UsersController.show = function(req, res) {
 		if (err) {
 			console.log(err);
 		} else if (result.length !== 0) {
-			//res.sendfile('./client/list.html');
+			if (result[0].role === 'admin') {
+				res.sendfile('./client/admin.html');
+			}
+			else
+			{
+				res.sendfile('./client/moderator.html');
+			}
 		} else {
 		  res.send(404);
 		}
@@ -60,7 +66,8 @@ UsersController.create = function(req, res) {
 	        console.log(err);   
 	    } else {
 	        var newUser = new User({
-	            "username": username
+	            "username": username,
+	            "role": "apothecary"
 	        });
 	        newUser.save(function(err, result) {
 	            console.log(err); 

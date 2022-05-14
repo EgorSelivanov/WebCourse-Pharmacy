@@ -1,5 +1,9 @@
+var userListMy = [];
+
 var main = function (UsersObjects) {
 	"use strict";
+
+	loadUserList();
 
 	var htmlImage = `
 		<div class="header-image">
@@ -10,20 +14,22 @@ var main = function (UsersObjects) {
 
 	var $input = $("<input>").addClass("input-name"),
 		$butRegister = $("<button>").text("Создать аккаунт").addClass("authorization-btn"),
-		$butLogin = $("<button>").text("Войти в аккаунт").addClass("authorization-btn"),
-		$butEdit = $("<button>").text(" Изменить имя пользователя").addClass("authorization-btn"),
+		$butEdit = $("<button>").text("Изменить имя пользователя").addClass("authorization-btn"),
+		$aReturn = $("<a href='/index.html'>"),
+		$butReturn = $("<button>").text("Вернуться на главную").addClass("authorization-btn"),
 		$butDestroy = $("<button>").text("Удалить пользователя").addClass("authorization-btn");
+
+	$aReturn.append($butReturn);
 
 	$butRegister.on("click", function() {
 		var username = $input.val();
 		if (username !== null && username.trim() !== "") {
 			var newUser = {"username": username};
-			$.post("apothecary", newUser, function(result) {
+			$.post("/apothecary", newUser, function(result) {
 				console.log(result);
-				//UsersObjects.push(newUser);
 			}).done(function(response) {
 				console.log(response);
-				alert('Аккаунт создан! Нажмите "Войти", чтобы продолжить');
+				alert('Аккаунт создан!');
 				loadUserList();
 			}).fail(function(jqXHR, textStatus, error) {
 				console.log(error);
@@ -38,27 +44,15 @@ var main = function (UsersObjects) {
 			alert("Неудачное имя пользователя!");
 	});
 
-	$butLogin.on("click", function() {
-		var username = $input.val();
-		if (username !== null && username.trim() !== "") {
-			var loginUser = {"username": username};
-			$.ajax({
-				'url': '/apothecary/' + username,
-				'type': 'GET'
-			}).done(function(response) {
-				window.location.replace('users/' + username + '/');
-			}).fail(function(jqXHR, textStatus, error) {
-				console.log(error);
-				alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);	
-			});
-		}
-		else
-			alert("Неудачное имя пользователя!");
-	});
-
 	$butEdit.on("click", function() {
 		if ($input.val() !== null && $input.val().trim() !== "") {
 			var username = $input.val();
+
+			if (userListMy.indexOf(username) === -1) {
+				alert('Имя пользователя отстутствует!');
+				return;
+			}
+
 			var newUsername = prompt("Введите новое имя пользователя", $input.val());
 			if (newUsername !== null && newUsername.trim() !== "") {
 				$.ajax({
@@ -69,6 +63,7 @@ var main = function (UsersObjects) {
 					console.log(responde);
 					$input.val(newUsername);
 					alert('Имя пользователя успешно изменено');
+					userListMy.splice(userListMy.indexOf(username), 1);
 					loadUserList();
 				}).fail(function(jqXHR, textStatus, error) {
 					console.log(error);
@@ -83,6 +78,12 @@ var main = function (UsersObjects) {
 	$butDestroy.on("click", function() {
 		if ($input.val() !== null && $input.val().trim() !== "") {
 			var username = $input.val();
+
+			if (userListMy.indexOf(username) === -1) {
+				alert('Имя пользователя отстутствует!');
+				return;
+			}
+
 			if (confirm("Вы уверены, что хотете удалить пользователя " + username + "?")) {
 				$.ajax({
 					'url': '/apothecary/' + username,
@@ -91,6 +92,7 @@ var main = function (UsersObjects) {
 					console.log(response);
 					$input.val("");
 					alert('Пользователь успешно удален');
+					userListMy.splice(userListMy.indexOf(username), 1);
 					loadUserList();
 				}).fail(function(jqXHR, textStatus, error) {
 					console.log(error);
@@ -102,15 +104,17 @@ var main = function (UsersObjects) {
 			alert("Неудачное имя пользователя!");
 	});
 
+	$butReturn.on("click", function() {
+		window.location.replace('/');
+	});
+
 	$("main .authorization").append($input);
 	$("main .authorization").append('<br>');
 	$("main .authorization").append($butDestroy);
 	$("main .authorization").append($butEdit);
 	$("main .authorization").append('<br>');
-	$("main .authorization").append($butLogin);
 	$("main .authorization").append($butRegister);
-
-	loadUserList();
+	$("main .authorization").append($butReturn);
 }
 
 var loadUserList = function() {
@@ -125,6 +129,7 @@ var loadUserList = function() {
 			htmlCatalog += `<li class="userlist__item">
 								${username}
 							</li>`;
+			userListMy.push(username);
 		})
 		$userList.append(htmlCatalog);
 		$('.list_of_users').append($userList);

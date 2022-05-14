@@ -47,6 +47,7 @@ app.put("/category/:category_link/product/:id", productController.update);
 app.delete("/category/:category_link/product/:id", productController.destroy);
 
 app.get("/apothecary.json", usersController.index);
+app.get("/apothecary/:username/apothecary.json", usersController.index);
 app.post("/apothecary", usersController.create);
 app.get("/apothecary/:username", usersController.show);
 app.put("/apothecary/:username", usersController.update);

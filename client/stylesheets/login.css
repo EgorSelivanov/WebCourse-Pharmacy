@@ -24,26 +24,13 @@
 	width: 195px;
 }
 
-.list_of_users {
-	text-align: center;
-	border: double;
-	padding: 10px;
-	padding-inline: 20px;
-	margin-top: 70px;
-	border-radius: 30px;
-	background-color: lemonchiffon;
-	position: absolute;
-	right: 115px;
-	width: 250px;
-}
-
 p {
 	font-size: 18px;
 }
 
 h2 {
 	text-align: center;	
-	margin-left: 100;
+	margin-left: 150;
 	font-size: 30px;
 	color: darkblue;
 	margin-right: inherit;
