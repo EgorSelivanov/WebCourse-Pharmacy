@@ -24,6 +24,16 @@ class Shopping {
 		$('.store').empty();
 	}
 
+	handleClose() {
+		var searcher = document.getElementById("input-product").value || null;
+		if (searcher.trim() === "" || searcher === null) {
+			productsPage.render();
+		}
+		else {
+			$('.search-med-btn').click();
+		}
+	}
+
 	render() {
 		const productsStore = localStorageUtil.getProducts();
 		let htmlCatalog = '';
@@ -36,7 +46,7 @@ class Shopping {
 
 		const html = `
 			<div class="shopping-container">
-				<div class="shopping__close" onclick="shoppingPage.handleClear();productsPage.render();$('.search-med-btn').click();">
+				<div class="shopping__close" onclick="shoppingPage.handleClear();shoppingPage.handleClose();">
 				</div>
 				<div class="sum-price">
 					<h3 class="shopping-element__name">Сумма: </h3>

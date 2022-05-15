@@ -137,6 +137,10 @@ var loadUserList = function() {
 }
 
 $(document).ready(function() {
+	$('.menu-btn').on('click', function() {
+		$('.menu').toggleClass('menu_active');
+	});
+	
 	$.getJSON("apothecary.json", function (UsersObjects) {
 		main(UsersObjects);
 	});

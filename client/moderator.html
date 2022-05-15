@@ -4,9 +4,9 @@
 <title>Интернет-аптека города Казани, поиск препаратов, наличие в аптеках</title>
 <link rel="stylesheet" type="text/css" href="/stylesheets/reset.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/shopping.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/catalog.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/moderator.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/editPage.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Ubuntu&display=swap" rel="stylesheet">
@@ -17,7 +17,12 @@
 	<div class="container">
 		<h1>Интернет-аптека</h1>
 
-		<h2>Панель аптекаря</h2>
+		<div class="searching">
+			<form>
+				<input type="search" id='input-product' class="input-med" placeholder="Введите название товара для редактирования">
+				<button class="search-med-btn">Поиск</button>
+			</form>
+		</div>
 	</div>
 </header>
 
@@ -35,12 +40,15 @@
 			</div>
 		</div>
 
-		<div class="authorization">
-			<p>Введите имя пользователя:</p>
+		<div class="catalog">
+					
 		</div>
 
-		<div class="list_of_users">
-		</div>
+	</div>
+
+	<div class="edit__page">
+
+	</div>
 
 </main>
 <footer class="main__footer">
@@ -72,6 +80,8 @@
 	</div>	
 </footer>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="/javascripts/editPage.js"></script>
+<script src="/javascripts/deletePage.js"></script>
 <script src="/javascripts/moderator.js"></script>
 </div>
 </body>

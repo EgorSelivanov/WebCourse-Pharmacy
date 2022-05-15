@@ -26,15 +26,15 @@ var liaWithOpenOnClick = function(category) {
 	$categoryLink.on("click", function (e) {
 		e.preventDefault();
 		$.ajax({
-				'url': '/category/' + category.category_link,
-				'type': 'GET'
-			}).done(function(response) {
-				window.location.replace('/category/' + category.category_link + '/');
-			}).fail(function(jqXHR, textStatus, error) {
-				console.log(error);
-				console.log(jqXHR.status + " " + jqXHR.textStatus);
-				alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);	
-			});
+			'url': '/category/' + category.category_link,
+			'type': 'GET'
+		}).done(function(response) {
+			window.location.replace('/category/' + category.category_link + '/');
+		}).fail(function(jqXHR, textStatus, error) {
+			console.log(error);
+			console.log(jqXHR.status + " " + jqXHR.textStatus);
+			alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);	
+		});
 	});
 	
 	$categoryListItem.append($categoryLink);
@@ -43,8 +43,6 @@ var liaWithOpenOnClick = function(category) {
 };
 
 var searchProduct = function() {
-	$('.catalog').empty();
-	$('.catalog-nav').empty();
 	
 	const productsStore = localStorageUtil.getProducts();
 	let htmlCatalog = '';
@@ -52,8 +50,12 @@ var searchProduct = function() {
 	var title = document.getElementById("input-product").value;
 
 	if (title.trim() === "") {
-		window.location.replace('/');
+
 		return;
+	}
+	else {
+		$('.catalog').empty();
+		$('.catalog-nav').empty();
 	}
 
 	$.get('/search/' + title, function(productObjects){

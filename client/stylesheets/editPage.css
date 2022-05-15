@@ -1,0 +1,96 @@
+.shopping-container {
+	width: 93%;
+	height: 93vh;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: auto;
+	padding: 30px;
+	background-color: white;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: scroll;
+	justify-content: center;
+}
+
+.product__img__edit {
+	display: block;
+	margin: 0 auto 15px;
+	max-width: 50%;
+	height: auto;
+}
+
+.shopping-element__name {
+	margin: 0 0 10px;
+	font-weight: 900;
+	font-size: 22px;
+}
+.shopping-element__price {
+	margin: 0 0 10px;
+	font-weight: 900;
+	font-size: 20px;
+	color: skyblue;
+}
+.shopping__close {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	top: 20px;
+	right: 20px;
+	background-image: url(https://i.ibb.co/tLtWWX2/close.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	cursor: pointer;
+	z-index: 99999999;
+}
+.bucket__content {
+	margin-bottom: 25px;
+	flex-grow: 0;
+}
+.bucket-item {
+	text-align: center;
+	width: 500px;
+	margin-bottom: 90px;
+	padding: 0 35px;
+	position: relative;
+	margin-left: 30px
+}
+.bucket {
+	position: absolute;
+	right: 85px;
+}
+.buy__btn {
+	margin-bottom: auto;
+	margin-left: -125px;
+	margin-top: 100px;
+	width: 100px;
+	background-color: darksalmon;
+	height: 45px;
+	border-radius: 15px;
+	border: ridge;
+}
+.edit__parameter {
+	width: 500px;
+	text-align: center;
+	border-radius: 15px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+input:invalid {
+  border: 2px solid red;
+}
+
+.edit__btn {
+	box-shadow: none;
+	background: #ffa650;
+	border-radius: 25px;
+	width: 200px;
+	padding: 14px 20px;
+	display: block;
+	margin: 0 auto 15px;
+}
+.catalog-item {
+	width: 250px;
+}

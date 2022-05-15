@@ -1,0 +1,7 @@
+.catalog {
+	margin-top: 15px;
+}
+.catalog-item {
+	width: calc(100% / 5);
+	border: groove;
+}

@@ -33,5 +33,8 @@ var main = function () {
 };
 
 $(document).ready(function() {
+	$('.menu-btn').on('click', function() {
+		$('.menu').toggleClass('menu_active');
+	});
 	main();
 });
