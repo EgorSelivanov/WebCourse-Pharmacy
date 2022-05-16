@@ -22,7 +22,15 @@ var searchProduct = function() {
 		return;
 	}
 
-	$.get('/search/' + title, function(productObjects){
+	$.ajax({
+		'url': '/search/' + title,
+		'type': 'GET'
+	}).done(function(productObjects) {
+
+		if (productObjects.length === 0) {
+			addPage.render();
+			return;
+		}
 		productObjects.forEach(({ _id, title, description, price, prescription, availability,
 								data_category, amount, img, release_form }) => {
 			var htmlAvailability = '';
@@ -70,19 +78,13 @@ var searchProduct = function() {
 		})
 
 		$('.catalog').append(htmlCatalog);
-	})
+	}).fail(function(jqXHR, textStatus, error) {
+		console.log(error);
+		console.log(jqXHR.status + " " + jqXHR.textStatus);
+		alert("Ошибка!" + jqXHR.status + " " + jqXHR.textStatus);	
+	});
 }
 
-var addNewProduct = function() {
-
-}
-
-var editProduct = function(id) {
-}
-
-var deleteProduct = function(id) {
-
-}
 
 $(document).ready(function() {
 	$('.menu-btn').on('click', function() {

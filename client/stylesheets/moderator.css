@@ -5,3 +5,10 @@
 	width: calc(100% / 5);
 	border: groove;
 }
+.list_category {
+	text-align: center;
+	position: absolute;
+	right: 125px;
+	border: ridge;
+	border-radius: 15px;
+}

@@ -116,7 +116,7 @@ ProductsController.showByName = function (req, res) {
 			console.log("ERROR" + err);
 			res.status(500).json(err);
 		} else {
-			if (Product.length > 0) {
+			if (Product.length >= 0) {
 				// возвращаем успех!
 				res.status(200).json(product);
 			} else {

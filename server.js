@@ -31,7 +31,7 @@ app.get("/product.json", productController.index);
 app.get("/product.json/:data_category", productController.showByCategory);
 app.get("/product/:id", productController.show);
 app.get("/search/:title", productController.showByName); 
-app.post("/product", productController.create);
+app.post("/product/:category_name", productController.create);
 app.put("/product/:id", productController.update);
 app.delete("/product/:id", productController.destroy);
 

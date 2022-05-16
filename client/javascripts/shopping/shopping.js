@@ -26,7 +26,7 @@ class Shopping {
 
 	handleClose() {
 		var searcher = document.getElementById("input-product").value || null;
-		if (searcher.trim() === "" || searcher === null) {
+		if (searcher === null || searcher.trim() === "") {
 			productsPage.render();
 		}
 		else {
@@ -59,31 +59,56 @@ class Shopping {
 
 		
 		productsStore.forEach((id) => {
-			$.get("/product/" + id, function({ _id, title, description, price, img }){
+			$.get("/product/" + id, function({ _id, title, description, price, img, amount }){
 					var activeClass = ' product__btn__active';
 					var activeText = 'Удалить из корзины';
 
-					var htmlCatalogItem = 
-							`<div class="bucket-item"> 
-								<div class="product">
-									<img src=${img} alt="" class="product__img">
-									<div class="bucket__content">
-										<h3 class="product__title">${title}</h3>
-										<p class="product__description">${description}</p>
-									</div>
-									<footer class="product__footer">
-										<div class="product__bottom">
-											<div class="product__price">
-												<span class="product__price-value">${price}</span>
-												<span class="product__currency">&#8381;</span>
-												<button class="btn product__btn${activeClass}" type="button" onclick="productsPage.handleSetLocationStorage(this, '${_id}', ${price});
-												shoppingPage.render();">
-												${activeText}</button>
-											</div>
+					var htmlCatalogItem;
+
+					if (amount != 0) {
+						htmlCatalogItem = 
+								`<div class="bucket-item"> 
+									<div class="product">
+										<img src=${img} alt="" class="product__img">
+										<div class="bucket__content">
+											<h3 class="product__title">${title}</h3>
+											<p class="product__description">${description}</p>
 										</div>
-									</footer>
-								</div>
-							</div>`;
+										<footer class="product__footer">
+											<div class="product__bottom">
+												<div class="product__price">
+													<span class="product__price-value">${price}</span>
+													<span class="product__currency">&#8381;</span>
+													<button class="btn product__btn${activeClass}" type="button" onclick="productsPage.handleSetLocationStorage(this, '${_id}', ${price});
+													shoppingPage.render();">
+													${activeText}</button>
+												</div>
+											</div>
+										</footer>
+									</div>
+								</div>`;
+					}
+					else {
+						htmlCatalogItem = 
+								`<div class="bucket-item"> 
+									<div class="product">
+										<img src=${img} alt="" class="product__img">
+										<div class="bucket__content">
+											<h3 class="product__title">${title}</h3>
+											<p class="product__description">${description}</p>
+										</div>
+										<footer class="product__footer">
+											<div class="product__bottom">
+												<div class="product__price">
+													<span class="product__price-value">${price}</span>
+													<span class="product__currency">&#8381;</span>
+													<p>Товара нет в наличии</p>
+												</div>
+											</div>
+										</footer>
+									</div>
+								</div>`;
+					}
 					$('.shopping-container').append(htmlCatalogItem);
 				})
 		});
