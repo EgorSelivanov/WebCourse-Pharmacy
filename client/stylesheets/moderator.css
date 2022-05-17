@@ -12,3 +12,22 @@
 	border: ridge;
 	border-radius: 15px;
 }
+.btn__moder__return {
+	position: absolute;
+	left: 100px;
+	margin-top: 10px;
+	border-radius: 15px;
+	width: 160px;
+	background: lavender;
+	height: 40px;
+}
+.btn__moder__add {
+	position: absolute;
+	left: 100px;
+	margin-top: 60px;
+	border-radius: 15px;
+	width: 160px;
+	background: lavender;
+	height: 40px;
+}
+

@@ -1,13 +1,10 @@
 class AddPage {
 	render() {
 
-		if (confirm("Данный продукт отсутствует в базе данных, хотите открыть форму для добавления?")) {
+		var categoryList = [];
 
-			$.getJSON("/category.json", function (categoryObjects) {
-				// вызов функции main с аргументом в виде объекта categoryObjects
-				$('.catalog').append(`<div class='list_category'></div>`);
-				addPage.buildCategories(categoryObjects);
-			});
+		if (confirm("Хотите открыть форму для добавления?")) {
+			$('.catalog').empty();
 
 			$('.container').css({ 'text-align': 'center' });
 			var htmlCatalog = `
@@ -20,11 +17,20 @@ class AddPage {
 					<h2 class="descr">Цена: </h2>
 					<input id="edit__price" class="edit__parameter" value="" required>
 					<h2 class="descr">Выпуск: </h2>
-					<input id="edit__prescription" class="edit__parameter" value="" required>
+					<p><select id="edit__prescription" class="edit__parameter" required>
+					<option value="">Без рецепта</option>
+					<option value="">По рецепту</option>
+				    </select></p>
 					<h2 class="descr">Наличие(вводить через ; с пробелом): </h2>
-					<input id="edit__availability" class="edit__parameter" value="">
-					<h2 class="descr">Тег (health,goods_of_day,beauty,for_children,none): </h2>
-					<input id="edit__data_category" class="edit__parameter" value="" required>
+					<input id="edit__availability" class="edit__parameter" value="" required>
+					<h2 class="descr">Тег: </h2>
+					<p><select id="edit__data_category" class="edit__parameter" required>
+					<option value="">none</option>
+					<option value="">health</option>
+					<option value="">goods_of_day</option>
+					<option value="">beauty</option>
+					<option value="">for_children</option>
+				    </select></p>
 					<h2 class="descr">Количество: </h2>
 					<input id="edit__amount" class="edit__parameter" value="" min="0" max="1000" required>
 					<h2 class="descr">Формы выпуска(вводить через ; с пробелом): </h2>
@@ -32,13 +38,30 @@ class AddPage {
 					<h2 class="descr">Картинка: </h2>
 					<input id="edit__img" class="edit__parameter" value="" required>
 					<h2 class="descr">Категория: </h2>
-					<input id="edit__category_name" class="edit__parameter" value="" required>
+					<p><select id="edit__category_name" class="edit__parameter" required>
+				    </select></p>
 
 					<button class="btn edit__btn" 
 					type="button" onclick="addPage.addData()">Добавить</button>
 				</form>
 				</div>`;
+
 			$('.catalog').append(htmlCatalog);
+
+			/*<p><input id="edit__category_name" class="edit__parameter" list="category__sel" required>
+					   <datalist id="category__sel">
+					   </datalist>
+					</p>*/
+
+			$.getJSON("/category.json", function (categoryObjects) {
+				// вызов функции main с аргументом в виде объекта categoryObjects
+				/*$('.catalog').append(`<div class='list_category'></div>`);
+				addPage.buildCategories(categoryObjects);*/
+				for (var i = 0; i < categoryObjects.length; i++) {
+					//$('#category__sel').append($(`<option value="${categoryObjects[i].category_name}"></option>`));
+					$('#edit__category_name').append($(`<option value="">${categoryObjects[i].category_name}</option>`));
+				}
+			});
 		}
 		
 		
@@ -48,13 +71,13 @@ class AddPage {
 		var title = $("#edit__title").val(),
 			description = $("#edit__descr").val(),
 			price = $("#edit__price").val(),
-			prescription = $("#edit__prescription").val(),
+			prescription = $("#edit__prescription").children(":selected").text(),
 			availability = $("#edit__availability").val().split('; '),
-			data_category = $("#edit__data_category").val(),
+			data_category = $("#edit__data_category").children(":selected").text(),
 			amount = $("#edit__amount").val(),
 			release_form = $("#edit__release_form").val().split('; '),
 			img = $("#edit__img").val(),
-			category_name = $('#edit__category_name').val();
+			category_name = $('#edit__category_name').children(":selected").text();
 
 		if (title.trim() === "" || description.trim() === "" || price.trim() === "" || prescription.trim() === "" ||
 			data_category.trim() === "" || amount.trim() === "" || img.trim() === ""){
@@ -91,12 +114,11 @@ class AddPage {
 					'img': img }
 		}).done(function(response) {
 			alert("Данные успешно добавлены!");
+			$('.catalog').empty();
+			document.getElementById("input-product").value = ""; 
 		}).fail(function(jqXHR, textStatus, error) {
 			alert("Ошибка добавления! Проверьте введенные данные!");
 		});
-
-		$('.catalog').empty();
-		document.getElementById("input-product").value = ""; 
 	}
 
 	buildCategories(categoryObjects) {

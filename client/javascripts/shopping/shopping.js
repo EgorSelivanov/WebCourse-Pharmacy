@@ -19,6 +19,7 @@ class Shopping {
 				    complete: function() { console.log('Завершение выполнения'); }
 				});
 				productsPage.handleSetLocationStorage(this, _id, price);
+				shoppingPage.handleClose();
 			});
 		});
 		$('.store').empty();
@@ -114,7 +115,7 @@ class Shopping {
 		});
 
 		var htmlBuyButton = 
-		`<button class="btn buy__btn" type="button" onclick="shoppingPage.handleBuyProducts()">Купить</button>`
+		`<button class="btn buy__btn" type="button" onclick="shoppingPage.handleBuyProducts();">Купить</button>`
 		$('.shopping-container').append(htmlBuyButton);
 	}
 }

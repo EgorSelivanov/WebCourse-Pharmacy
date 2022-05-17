@@ -45,7 +45,6 @@ var liaWithOpenOnClick = function(category) {
 var searchProduct = function() {
 	
 	const productsStore = localStorageUtil.getProducts();
-	let htmlCatalog = '';
 
 	var title = document.getElementById("input-product").value;
 
@@ -58,7 +57,78 @@ var searchProduct = function() {
 		$('.catalog-nav').empty();
 	}
 
-	$.get('/search/' + title, function(productObjects){
+	searchByTitle(title);	
+}
+
+var searchByTitle = function(title) {
+	let htmlCatalog = '';
+	$.get('/search/title/' + title, function(productObjects){
+		if (productObjects.length === 0) {
+			searchByDescr(title);
+			return;
+		}
+		productObjects.forEach(({ _id, title, description, price, img, amount }) => {
+			let activeClass = '';
+			let activeText = '';
+
+			if (productsStore.indexOf(_id) === -1) {
+				activeText = 'Добавить в корзину';
+			} else {
+				activeClass = ' product__btn__active';
+				activeText = 'Удалить из корзины';
+			}
+			if (amount != 0)
+			{
+				htmlCatalog += `<div class="catalog-item"> 
+							<div class="product">
+								<img src=${img} alt="" class="product__img">
+								<div class="product__content">
+									<h3 class="product__title">${title}</h3>
+									<p class="product__description">${description}</p>
+								</div>
+								<footer class="product__footer">
+									<div class="product__bottom">
+										<div class="product__price">
+											<span class="product__price-value">${price}</span>
+											<span class="product__currency">&#8381;</span>
+											<button class="btn product__btn${activeClass}" 
+											type="button" onclick="productsPage.handleSetLocationStorage(this, '${_id}', ${price})">
+											${activeText}</button>
+										</div>
+									</div>
+								</footer>
+							</div>
+						</div>`;
+			}
+			else {
+				htmlCatalog += `<div class="catalog-item"> 
+							<div class="product">
+								<img src=${img} alt="" class="product__img">
+								<div class="product__content">
+									<h3 class="product__title">${title}</h3>
+									<p class="product__description">${description}</p>
+								</div>
+								<footer class="product__footer">
+									<div class="product__bottom">
+										<div class="product__price">
+											<span class="product__price-value">${price}</span>
+											<span class="product__currency">&#8381;</span>
+											<p>Товара нет в наличии</p>
+										</div>
+									</div>
+								</footer>
+							</div>
+						</div>`;
+			}
+		})
+
+		$('.catalog').append(htmlCatalog);
+	})
+}
+
+var searchByDescr = function(title) {
+	let htmlCatalog = '';
+	$.get('/search/descr/' + title, function(productObjects){
 		productObjects.forEach(({ _id, title, description, price, img, amount }) => {
 			let activeClass = '';
 			let activeText = '';

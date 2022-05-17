@@ -9,7 +9,16 @@ var main = function () {
 		</div>`;
 
 	$('.main__header .container').append(htmlImage);	
+
+	$('.moder__buttons').append(`<a href="/">
+		<button class="btn__moder__return" type='button'>Вернуться на главную</button>
+		</a>`);
+	$('.moder__buttons').append(`
+		<button class="btn__moder__add" type='button' onclick='addPage.render();'>Добавить новый продукт</button>
+		`);
 }
+
+
 
 var searchProduct = function() {
 	$('.catalog').empty();
@@ -23,7 +32,7 @@ var searchProduct = function() {
 	}
 
 	$.ajax({
-		'url': '/search/' + title,
+		'url': '/search/title/' + title,
 		'type': 'GET'
 	}).done(function(productObjects) {
 
